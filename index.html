@@ -8,9 +8,10 @@
       table,
       td {
         border: 1px solid black;
+        margin: auto;
       }
     </style>
-    <title>Grafika</title>
+    <title>Kołko i krzyżyk</title>
   </head>
   <body>
     <img src="tlo.png" id="kto" alt="x" onclick="zmien(kto)" />
@@ -32,6 +33,7 @@
         <td><img src="tlo.png" id="a33" onclick="kk('a33')" alt="tlo" /></td>
       </tr>
     </table>
+    <p id="wygrana"></p>
 
     <script>
       var kto = 0;
@@ -70,9 +72,17 @@
             document.getElementById("a32").alt == "kolo") ||
           (document.getElementById("a13").alt == "kolo" &&
             document.getElementById("a23").alt == "kolo" &&
-            document.getElementById("a33").alt == "kolo")
+            document.getElementById("a33").alt == "kolo") ||
+          (document.getElementById("a11").alt == "kolo" &&
+            document.getElementById("a22").alt == "kolo" &&
+            document.getElementById("a33").alt == "kolo") ||
+          (document.getElementById("a13").alt == "kolo" &&
+            document.getElementById("a22").alt == "kolo" &&
+            document.getElementById("a31").alt == "kolo")
         ) {
           document.getElementById("kto").src = "kolo.png";
+          document.getElementById("kto").alt = "wygranakolo";
+          document.getElementById("wygrana").innerHTML = "Wygrywa Koło!";
         } else if (
           (document.getElementById("a11").alt == "krzyzyk" &&
             document.getElementById("a12").alt == "krzyzyk" &&
@@ -80,7 +90,7 @@
           (document.getElementById("a21").alt == "krzyzyk" &&
             document.getElementById("a22").alt == "krzyzyk" &&
             document.getElementById("a23").alt == "krzyzyk") ||
-          (document.getElementById("a31").alt == "krzyzyk" &&
+          (document.getElementById("a31").alt == "krzyzk" &&
             document.getElementById("a32").alt == "krzyzyk" &&
             document.getElementById("a33").alt == "krzyzyk") ||
           (document.getElementById("a11").alt == "krzyzyk" &&
@@ -91,9 +101,17 @@
             document.getElementById("a32").alt == "krzyzyk") ||
           (document.getElementById("a13").alt == "krzyzyk" &&
             document.getElementById("a23").alt == "krzyzyk" &&
-            document.getElementById("a33").alt == "krzyzyk")
+            document.getElementById("a33").alt == "krzyzyk") ||
+          (document.getElementById("a11").alt == "krzyzyk" &&
+            document.getElementById("a22").alt == "krzyzyk" &&
+            document.getElementById("a33").alt == "krzyzyk") ||
+          (document.getElementById("a13").alt == "krzyzyk" &&
+            document.getElementById("a22").alt == "krzyzyk" &&
+            document.getElementById("a31").alt == "krzyzyk")
         ) {
           document.getElementById("kto").src = "krzyzyk.png";
+          document.getElementById("kto").alt = "wygranakrzyzyk";
+          document.getElementById("wygrana").innerHTML = "Wygrywa krzyżyk!";
         }
       }
     </script>
